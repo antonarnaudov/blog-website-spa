@@ -1,0 +1,17 @@
+<main>
+  <div class="blog" *ngIf="blog">
+    <img src="{{blog.image}}" alt="{{blog.title}} image">
+
+    <div class="blog-info">
+      <p id="author">Author: {{blog.author.username}}</p>
+      <p id="creationDate">Creation date: {{blog.created_at}}</p>
+
+      <span>Topic: {{blog.topic}}</span>
+      <h1>{{blog.title}}</h1>
+    </div>
+
+    <p id="content">{{blog.content}}</p>
+  </div>
+
+  <div *ngIf="!blog"><h1>Loading...</h1></div>
+</main>

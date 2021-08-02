@@ -1,4 +1,12 @@
 <main>
+  <div class="search-box" *ngIf="blogs">
+    <input type="text" #searchInput (change)="searchButtonHandler(searchInput)" placeholder="Search...">
+    <div class="buttons">
+      <i id="search" (click)="searchButtonHandler(searchInput)" class="fas fa-search"></i>
+      <i id="redo" (click)="refreshButtonHandler()" class="fas fa-redo"></i>
+    </div>
+  </div>
+
   <div class="blog-container" *ngIf="blogs">
     <div class="blog" *ngFor="let blog of blogs">
       <a routerLink="/blogs/{{blog.id}}">
@@ -16,6 +24,9 @@
       </a>
     </div>
   </div>
+  <div class="message" *ngIf="blogs?.length == 0"><p>No blogs with this topic or title!</p></div>
 
-  <div *ngIf="!blogs"><h1>Loading...</h1></div>
+  <div class="message error" *ngIf="errorLoadingUsers"><p>Error loading users! Check your connection!</p></div>
+
+  <div *ngIf="!blogs && !errorLoadingUsers"><h1>Loading...</h1></div>
 </main>

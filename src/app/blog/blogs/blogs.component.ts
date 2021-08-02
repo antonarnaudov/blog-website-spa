@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { IBlog } from 'src/app/shared/interfaces/blog';
-import { BlogService } from '../blog.service';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {IBlog} from 'src/app/shared/interfaces/blog';
+import {BlogService} from '../blog.service';
 
 @Component({
   selector: 'app-blogs',
@@ -11,6 +11,7 @@ import { BlogService } from '../blog.service';
 export class BlogsComponent {
 
   blogs: IBlog[] | undefined
+  errorLoadingUsers = false;
 
   constructor(
     private blogService: BlogService,
@@ -19,8 +20,30 @@ export class BlogsComponent {
     this.getBlogs()
   }
 
-  getBlogs(): void {
-    this.blogs = undefined
-    this.blogService.getBlogs().subscribe(blogs => this.blogs = blogs)
+  getBlogs(search?: string): void {
+    this.blogs = undefined;
+    this.errorLoadingUsers = false;
+
+    this.blogService.getBlogs(search).pipe().subscribe(
+      blogs =>{
+        this.blogs = blogs // next fn
+        console.log(this.blogs)
+      },
+
+      error => {
+        console.error(error);
+        this.errorLoadingUsers = true;
+      }, // error fn
+      () => console.log('load users stream completed') // completed fn
+    );
+  }
+
+  searchButtonHandler(searchInput: HTMLInputElement): void {
+    const {value} = searchInput;
+    this.getBlogs(value);
+  }
+
+  refreshButtonHandler(): void {
+    this.getBlogs()
   }
 }

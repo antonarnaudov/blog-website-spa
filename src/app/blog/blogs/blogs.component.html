@@ -1,6 +1,7 @@
 <main>
   <div class="search-box" *ngIf="blogs">
-    <input type="text" #searchInput (change)="searchButtonHandler(searchInput)" placeholder="Search...">
+    <input type="text" #searchInput (change)="searchButtonHandler(searchInput)" value="{{search}}"
+           placeholder="Search...">
     <div class="buttons">
       <i id="search" (click)="searchButtonHandler(searchInput)" class="fas fa-search"></i>
       <i id="redo" (click)="refreshButtonHandler()" class="fas fa-redo"></i>

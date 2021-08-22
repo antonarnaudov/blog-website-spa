@@ -5,7 +5,11 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import {UserRoutingModule} from "./user-routing.module";
 import { SharedModule } from '../shared/shared.module';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CookieService} from "ngx-cookie-service";
+import {UserService} from "./user.service";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {TokenInterceptor} from "./token.interceptor";
 
 
 
@@ -20,6 +24,16 @@ import {FormsModule} from "@angular/forms";
     SharedModule,
     UserRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
+  ],
+  providers: [
+    CookieService,
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ]
 })
 export class UserModule { }

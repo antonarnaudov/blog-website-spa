@@ -7,6 +7,7 @@ import {SharedModule} from "../shared/shared.module";
 import {BlogRoutingModule} from "./blog-routing.module";
 import { EditBlogComponent } from './edit-blog/edit-blog.component';
 import {BlogService} from "./blog.service";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -20,7 +21,8 @@ import {BlogService} from "./blog.service";
   imports: [
     CommonModule,
     SharedModule,
-    BlogRoutingModule
+    BlogRoutingModule,
+    FormsModule
   ],
   providers: [
     BlogService

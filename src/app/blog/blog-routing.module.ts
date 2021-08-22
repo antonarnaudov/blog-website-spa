@@ -4,6 +4,7 @@ import {BlogsComponent} from "./blogs/blogs.component";
 import {BlogDetailedComponent} from "./blog-detailed/blog-detailed.component";
 import { NewBlogComponent } from './new-blog/new-blog.component';
 import {EditBlogComponent} from "./edit-blog/edit-blog.component";
+import { PrivateGuard } from '../shared/guards/private.guard';
 
 const routes: Routes = [
   {
@@ -13,6 +14,11 @@ const routes: Routes = [
         path: '',
         pathMatch: 'full',
         component: BlogsComponent,
+      },
+      {
+        path: 'add',
+        component: NewBlogComponent,
+        canActivate: [PrivateGuard]
       },
       {
         path: ':blogId',
@@ -28,10 +34,6 @@ const routes: Routes = [
           }
         ]
       },
-      {
-        path: 'add',
-        component: NewBlogComponent
-      }
     ]
   },
 ];

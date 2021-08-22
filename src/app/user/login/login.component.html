@@ -20,7 +20,7 @@
   </div>
 
   <div class="container">
-    <form #form="ngForm" method="post">
+    <form #form="ngForm" (ngSubmit)="login(form)">
       <h2>Login Form</h2>
       <div class="form-group">
         <label for="username"><i class="fas fa-user"></i></label>

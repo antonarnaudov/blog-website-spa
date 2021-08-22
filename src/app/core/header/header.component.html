@@ -12,8 +12,13 @@
   </div>
 
   <div class="user-container">
-    <a routerLink="/login">Login</a>
-    <a routerLink="/register">Register</a>
-<!--    <a routerLink="/">Profile</a>-->
+    <div *ngIf="!isLogged">
+      <a routerLink="/login">Login</a>
+      <a routerLink="/register">Register</a>
+    </div>
+    <div *ngIf="isLogged">
+      <a routerLink="/profile">{{username}}</a>
+      <a routerLink="/" (click)="logoutButtonHandler()">Logout</a>
+    </div>
   </div>
 </header>

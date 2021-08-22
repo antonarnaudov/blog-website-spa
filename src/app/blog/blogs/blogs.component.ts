@@ -12,6 +12,7 @@ export class BlogsComponent {
 
   blogs: IBlog[] | undefined
   errorLoadingUsers = false;
+  search: string | undefined = ''
 
   constructor(
     private blogService: BlogService,
@@ -25,9 +26,8 @@ export class BlogsComponent {
     this.errorLoadingUsers = false;
 
     this.blogService.getBlogs(search).pipe().subscribe(
-      blogs =>{
+      blogs => {
         this.blogs = blogs // next fn
-        console.log(this.blogs)
       },
 
       error => {
@@ -40,6 +40,7 @@ export class BlogsComponent {
 
   searchButtonHandler(searchInput: HTMLInputElement): void {
     const {value} = searchInput;
+    this.search = value;
     this.getBlogs(value);
   }
 

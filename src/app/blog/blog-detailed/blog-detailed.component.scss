@@ -39,4 +39,22 @@ main {
       margin-top: 100vh;
     }
   }
+  button {
+    border: 2px solid gray;
+    height: 7vh;
+    width: 10vw;
+    font-size: 1.3rem;
+    border-radius: 25px;
+    margin-top: 4vh;
+    background-color: #c0c0c0;
+    font-weight: 700;
+    margin-bottom: 4vh;
+
+    &:hover {
+      outline: none;
+      box-shadow: 0 0 5px 2px gray;
+      background-color: black;
+      color: gray;
+    }
+  }
 }

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {IBlog, IUser} from '../shared/interfaces';
+import {IBlog, IBlogEdit, IUser} from '../shared/interfaces';
 import {IBlogDetailed} from "../shared/interfaces";
 import {IBlogCreate} from "../shared/interfaces";
 
@@ -35,6 +35,19 @@ export class BlogService {
     formData.append('image', blog.image)
 
     return this.http.post<IBlogDetailed>(`${API_URL}/blog/`, formData)
+  }
+
+  editBlogById(id: string, blog: IBlogEdit) {
+    if (!blog.image) {
+      delete blog.image
+      return this.http.patch<IBlogDetailed>(`${API_URL}/blog/${id}/`, blog)
+    }
+      let formData = new FormData();
+      formData.append('topic', blog.topic)
+      formData.append('title', blog.title)
+      formData.append('content', blog.content)
+      formData.append('image', blog!.image)
+      return this.http.put<IBlogDetailed>(`${API_URL}/blog/${id}/`, formData)
   }
 
   deleteBlogById(id: string) {

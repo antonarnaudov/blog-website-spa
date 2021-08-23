@@ -11,7 +11,9 @@
     </div>
 
     <p id="content">{{blog.content}}</p>
+    <button id="edit" *ngIf="profile && blog!.author.id === profile.id" (click)="editBlogById()">Edit</button>
     <button id="delete" *ngIf="profile && blog!.author.id === profile.id" (click)="deleteBlogById()">Delete</button>
+
   </div>
 
   <div *ngIf="!blog"><h1>Loading...</h1></div>

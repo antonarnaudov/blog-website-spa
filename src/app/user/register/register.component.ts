@@ -22,9 +22,9 @@ export class RegisterComponent implements OnDestroy {
     private router: Router
   ) {
     this.form = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(4)]],
+      username: ['', [Validators.required, Validators.minLength(6)]],
       email: ['', [Validators.required, emailValidator]],
-      password: ['', [Validators.required, Validators.minLength(4)]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
       password2: ['', [Validators.required, sameValueAsFactory(
         () => this.form?.get('password'), this.killSubscription
       )]]
@@ -35,7 +35,7 @@ export class RegisterComponent implements OnDestroy {
     if (this.form.invalid) { return; }
     this.userService.register(this.form.value).subscribe({
       next: () => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
       },
       error: (err) => {
         console.error(err);

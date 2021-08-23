@@ -23,9 +23,9 @@ export class NewBlogComponent {
 
   addBlog(form: NgForm) {
     if (form.invalid) {return;}
-    console.log('Form')
+
     form.value.image = this.imageFile
-    console.log(form.value)
+
     this.blogService.createBlog(form.value).subscribe({
       next: () => {
         this.router.navigate(['/blogs']);

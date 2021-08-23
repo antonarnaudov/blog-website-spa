@@ -39,4 +39,9 @@ export class BlogDetailedComponent {
     this.blogService.deleteBlogById(id).subscribe()
     this.router.navigate(['/blogs'])
   }
+
+  editBlogById(): void {
+    const id = this.activatedRoute.snapshot.params.blogId;
+    this.router.navigate([`/blogs/${id}/edit`])
+  }
 }

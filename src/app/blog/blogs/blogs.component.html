@@ -27,7 +27,7 @@
   </div>
   <div class="message" *ngIf="blogs?.length == 0"><p>No blogs with this topic or title!</p></div>
 
-  <div class="message error" *ngIf="errorLoadingUsers"><p>Error loading users! Check your connection!</p></div>
+  <div class="message error" *ngIf="errorLoadingBlogs"><p>Error loading blogs! Check your connection!</p></div>
 
-  <div *ngIf="!blogs && !errorLoadingUsers"><h1>Loading...</h1></div>
+  <div *ngIf="!blogs && !errorLoadingBlogs"><h1>Loading...</h1></div>
 </main>

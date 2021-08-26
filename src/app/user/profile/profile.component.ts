@@ -11,22 +11,19 @@ import {UserService} from '../user.service';
 export class ProfileComponent {
 
   profile: IUser | undefined;
-  // blogs: IBlog[] | undefined;
-  // blogsLength: number | undefined;
+  blogs: IBlog[] | undefined;
 
   constructor(
     private userService: UserService,
-    // private blogService: BlogService,
+    private blogService: BlogService,
   ) {
     this.getProfile();
-    // this.getBlogs()
   }
 
   getProfile(): void {
     this.profile = undefined;
     this.userService.getUserById('0').subscribe(profile => this.profile = profile)
-    // this.blogs = undefined;
-    // this.blogService.filterBlogByAuthorId(String(this.profile!.id)).pipe().subscribe(blog => this.blogs = blog)
-    // this.blogsLength = this.blogs!.length;
+    this.blogs = undefined;
+    this.blogService.getBlogsByAuthorUsername(localStorage.getItem('username') || '').subscribe(blog => this.blogs = blog)
   }
 }

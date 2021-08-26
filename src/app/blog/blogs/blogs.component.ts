@@ -11,7 +11,7 @@ import {BlogService} from '../blog.service';
 export class BlogsComponent {
 
   blogs: IBlog[] | undefined
-  errorLoadingUsers = false;
+  errorLoadingBlogs = false;
   search: string | undefined = ''
 
   constructor(
@@ -23,7 +23,7 @@ export class BlogsComponent {
 
   getBlogs(search?: string): void {
     this.blogs = undefined;
-    this.errorLoadingUsers = false;
+    this.errorLoadingBlogs = false;
 
     this.blogService.getBlogs(search).pipe().subscribe(
       blogs => {
@@ -32,9 +32,9 @@ export class BlogsComponent {
 
       error => {
         console.error(error);
-        this.errorLoadingUsers = true;
+        this.errorLoadingBlogs = true;
       }, // error fn
-      () => console.log('load users stream completed') // completed fn
+      () => console.log('load blogs stream completed') // completed fn
     );
   }
 

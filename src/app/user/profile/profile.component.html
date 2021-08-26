@@ -15,6 +15,9 @@
       <li *ngIf="profile.last_name">
         <p>Last Name: <b>{{profile.last_name}}</b></p>
       </li>
+      <li *ngIf="blogs">
+        <p>Blog Posts Created: <b>{{blogs.length}}</b></p>
+      </li>
     </ul>
   </div>
 </main>

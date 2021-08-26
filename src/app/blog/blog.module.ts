@@ -8,6 +8,7 @@ import {BlogRoutingModule} from "./blog-routing.module";
 import { EditBlogComponent } from './edit-blog/edit-blog.component';
 import {BlogService} from "./blog.service";
 import {FormsModule} from "@angular/forms";
+import {LikeModule} from "../like/like.module";
 
 
 
@@ -22,10 +23,11 @@ import {FormsModule} from "@angular/forms";
     CommonModule,
     SharedModule,
     BlogRoutingModule,
-    FormsModule
+    FormsModule,
+    LikeModule
   ],
   providers: [
-    BlogService
+    BlogService,
   ]
 })
 export class BlogModule { }

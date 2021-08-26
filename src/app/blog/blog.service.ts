@@ -23,8 +23,8 @@ export class BlogService {
     return this.http.get<IBlogDetailed>(`${API_URL}/blog/${id}`)
   }
 
-  filterBlogByAuthorId(id: string) {
-    return this.http.get<IBlog[]>(`${API_URL}/blog/?author=${id}`)
+  getBlogsByAuthorUsername(username: string) {
+    return this.http.get<IBlog[]>(`${API_URL}/blog/?author__username=${username}`)
   }
 
   createBlog(blog: IBlogCreate) {

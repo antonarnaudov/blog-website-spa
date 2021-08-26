@@ -57,4 +57,16 @@ main {
       color: gray;
     }
   }
+  #delete {
+    background-color: red;
+    &:hover {
+      outline: none;
+      box-shadow: 0 0 5px 2px gray;
+      background-color: black;
+      color: red;
+    }
+  }
+  .like {
+    font-size: 2.5rem;
+  }
 }

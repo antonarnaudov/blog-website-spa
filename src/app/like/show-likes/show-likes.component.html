@@ -1,10 +1,17 @@
 <main>
-  <div class="search-box" *ngIf="likes">
-    <input type="text" #searchInput (change)="searchButtonHandler(searchInput)" value="{{search}}"
-           placeholder="Search...">
-    <div class="buttons">
-      <i id="search" (click)="searchButtonHandler(searchInput)" class="fas fa-search"></i>
-      <i id="redo" (click)="refreshButtonHandler()" class="fas fa-redo"></i>
+  <div class="head">
+    <div class="title">
+      <img src="assets/wishlist.png" alt="likes list img">
+      <h1>Liked Blogs</h1>
+    </div>
+
+    <div class="search-box" *ngIf="likes">
+      <input type="text" #searchInput (change)="searchButtonHandler(searchInput)" value="{{search}}"
+             placeholder="Search...">
+      <div class="buttons">
+        <i id="search" (click)="searchButtonHandler(searchInput)" class="fas fa-search"></i>
+        <i id="redo" (click)="refreshButtonHandler()" class="fas fa-redo"></i>
+      </div>
     </div>
   </div>
 
@@ -29,5 +36,5 @@
 
   <div class="message error" *ngIf="errorLoadingLikes"><p>Error loading liked blogs! Check your connection!</p></div>
 
-  <div *ngIf="!likes && !errorLoadingLikes"><h1>Loading...</h1></div>
+  <app-loading *ngIf="!likes && !errorLoadingLikes"></app-loading>
 </main>

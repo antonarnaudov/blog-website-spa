@@ -10,6 +10,7 @@ import {CookieService} from "ngx-cookie-service";
 import {UserService} from "./user.service";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {TokenInterceptor} from "./token.interceptor";
+import {CoreModule} from "../core/core.module";
 
 
 
@@ -19,13 +20,14 @@ import {TokenInterceptor} from "./token.interceptor";
     RegisterComponent,
     ProfileComponent,
   ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    UserRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        CommonModule,
+        SharedModule,
+        UserRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        CoreModule,
+    ],
   providers: [
     CookieService,
     UserService,

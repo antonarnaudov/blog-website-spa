@@ -5,6 +5,7 @@ import {BlogDetailedComponent} from "./blog-detailed/blog-detailed.component";
 import { NewBlogComponent } from './new-blog/new-blog.component';
 import {EditBlogComponent} from "./edit-blog/edit-blog.component";
 import { PrivateGuard } from '../shared/guards/private.guard';
+import {MyBlogsComponent} from "./my-blogs/my-blogs.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,11 @@ const routes: Routes = [
         canActivate: [PrivateGuard]
       },
       {
+        path: 'owned',
+        component: MyBlogsComponent,
+        canActivate: [PrivateGuard]
+      },
+      {
         path: ':blogId',
         children: [
           {
@@ -30,7 +36,8 @@ const routes: Routes = [
           },
           {
             path: 'edit',
-            component: EditBlogComponent
+            component: EditBlogComponent,
+            canActivate: [PrivateGuard]
           }
         ]
       },

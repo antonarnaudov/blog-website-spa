@@ -5,6 +5,7 @@ import {SharedModule} from "../shared/shared.module";
 import {LikeRoutingModule} from "./like-routing.module";
 import {LikeService} from "./like.service";
 import { LikeButtonComponent } from './like-button/like-button.component';
+import {CoreModule} from "../core/core.module";
 
 
 
@@ -13,11 +14,12 @@ import { LikeButtonComponent } from './like-button/like-button.component';
     ShowLikesComponent,
     LikeButtonComponent
   ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    LikeRoutingModule,
-  ],
+    imports: [
+        CommonModule,
+        SharedModule,
+        LikeRoutingModule,
+        CoreModule,
+    ],
   exports: [
     LikeButtonComponent
   ],

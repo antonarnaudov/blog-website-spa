@@ -17,9 +17,7 @@
     <div *ngIf="profile && blog!.author.id !== profile.id">
       <app-like-button (click)="performLike()" [isLiked]="isLiked"></app-like-button>
     </div>
-
-<!--    {{isLiked!.blog.created_at}}-->
   </div>
 
-  <div *ngIf="!blog"><h1>Loading...</h1></div>
+  <app-loading *ngIf="!blog"></app-loading>
 </main>

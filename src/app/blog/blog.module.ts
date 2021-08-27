@@ -9,6 +9,8 @@ import { EditBlogComponent } from './edit-blog/edit-blog.component';
 import {BlogService} from "./blog.service";
 import {FormsModule} from "@angular/forms";
 import {LikeModule} from "../like/like.module";
+import {CoreModule} from "../core/core.module";
+import { MyBlogsComponent } from './my-blogs/my-blogs.component';
 
 
 
@@ -17,15 +19,17 @@ import {LikeModule} from "../like/like.module";
     BlogsComponent,
     BlogDetailedComponent,
     NewBlogComponent,
-    EditBlogComponent
+    EditBlogComponent,
+    MyBlogsComponent
   ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    BlogRoutingModule,
-    FormsModule,
-    LikeModule
-  ],
+    imports: [
+        CommonModule,
+        SharedModule,
+        BlogRoutingModule,
+        FormsModule,
+        LikeModule,
+        CoreModule
+    ],
   providers: [
     BlogService,
   ]

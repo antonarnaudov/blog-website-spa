@@ -1,9 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {IBlog, IBlogEdit, IUser} from '../shared/interfaces';
-import {IBlogDetailed} from "../shared/interfaces";
-import {IBlogCreate} from "../shared/interfaces";
+import {IBlog, IBlogCreate, IBlogDetailed, IBlogEdit} from '../shared/interfaces';
 
 const API_URL = environment.apiURL
 
@@ -15,16 +13,16 @@ export class BlogService {
 
   getBlogs(search = '') {
     const query = search ? `/?search=${search}` : ''
-    const blogs = this.http.get<IBlog[]>(`${API_URL}/blog${query}`)
-    return blogs
+    return this.http.get<IBlog[]>(`${API_URL}/blog${query}`)
   }
 
   getBlogById(id: string) {
     return this.http.get<IBlogDetailed>(`${API_URL}/blog/${id}`)
   }
 
-  getBlogsByAuthorUsername(username: string) {
-    return this.http.get<IBlog[]>(`${API_URL}/blog/?author__username=${username}`)
+  getBlogsByAuthorUsername(username: string, search='') {
+    const query = search ? `&&search=${search}` : ''
+    return this.http.get<IBlog[]>(`${API_URL}/blog/?author__username=${username}` + query)
   }
 
   createBlog(blog: IBlogCreate) {

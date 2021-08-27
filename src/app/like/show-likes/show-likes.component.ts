@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {IBlog, ILike} from "../../shared/interfaces";
-import {Router} from "@angular/router";
+import { Component } from '@angular/core';
+import {ILike} from "../../shared/interfaces";
 import { LikeService } from '../like.service';
 
 @Component({

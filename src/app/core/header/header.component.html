@@ -17,7 +17,10 @@
       <a routerLink="/register">Register</a>
     </div>
     <div *ngIf="isLogged" id="logged">
-      <div  id="wishlist">
+      <div id="archive">
+        <a routerLink="/blogs/owned"><i class="fas fa-archive"></i></a>
+      </div>
+      <div id="wishlist">
         <a routerLink="/like"><img src="assets/wishlist.png" alt="wishlist"></a>
       </div>
 

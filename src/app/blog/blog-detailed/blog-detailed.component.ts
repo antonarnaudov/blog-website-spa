@@ -1,7 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,} from '@angular/core';
+import {ChangeDetectionStrategy, Component,} from '@angular/core';
 import {BlogService} from '../blog.service';
 import {ActivatedRoute, Router} from "@angular/router";
 import {IBlogDetailed} from 'src/app/shared/interfaces/blogDetailed';
@@ -27,7 +24,6 @@ export class BlogDetailedComponent {
     private likeService: LikeService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private changeDetector: ChangeDetectorRef
   ) {
     this.getBlogDetailed();
     this.getUserById()

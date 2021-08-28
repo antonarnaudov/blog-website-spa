@@ -23,7 +23,7 @@ export class MyBlogsComponent {
     this.myBlogs = undefined;
     this.errorLoadingBlogs = false;
     const username = localStorage.getItem('username') || '';
-    this.blogService.getBlogsByAuthorUsername(username, search).pipe().subscribe(
+    this.blogService.getBlogsByAuthorUsername(username, search).subscribe(
       blog => {
         this.myBlogs = blog // next fn
       },
@@ -46,4 +46,8 @@ export class MyBlogsComponent {
     this.getMyBlogs()
   }
 
+  deleteBlogById(id: number): void {
+    this.blogService.deleteBlogById(String(id)).subscribe()
+    setTimeout(() => this.getMyBlogs(), 100)
+  }
 }

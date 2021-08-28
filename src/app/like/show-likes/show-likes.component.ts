@@ -44,4 +44,9 @@ export class ShowLikesComponent {
   refreshButtonHandler(): void {
     this.getLikes()
   }
+
+  performLike(id: number): void {
+    this.likeService.performLike(String(id)).subscribe()
+    this.refreshButtonHandler()
+  }
 }

@@ -106,6 +106,9 @@ main {
     img {
       width: 100%;
       height: 50%;
+      &:hover {
+        box-shadow: 0 0 10px 5px gray;
+      }
     }
 
     .blog-title {
@@ -127,19 +130,35 @@ main {
     .blog-info {
       display: flex;
       text-align: center;
-      margin-top: 4vh;
+      margin-top: 2.5vh;
 
-      p {
-        margin-left: 2vw;
+      button {
+        margin-left: 3vw;
+        border: 2px solid gray;
+        height: 7vh;
+        width: 8vw;
+        font-size: 1.3rem;
+        border-radius: 25px;
+        background-color: #c0c0c0;
+        font-weight: 700;
+        cursor: pointer;
+
+        &:hover {
+          outline: none;
+          box-shadow: 0 0 5px 2px gray;
+          background-color: black;
+          color: gray;
+        }
       }
-
-      #author {
-        margin-left: 6.5vw;
+      #delete {
+        background-color: red;
+        &:hover {
+          outline: none;
+          box-shadow: 0 0 5px 2px gray;
+          background-color: black;
+          color: red;
+        }
       }
-    }
-
-    &:hover {
-      box-shadow: 0 0 10px 5px gray;
     }
   }
 }

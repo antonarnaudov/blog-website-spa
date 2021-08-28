@@ -105,6 +105,9 @@ main {
     img {
       width: 100%;
       height: 50%;
+      &:hover {
+        box-shadow: 0 0 10px 5px gray;
+      }
     }
 
     .blog-title {
@@ -126,19 +129,26 @@ main {
     .blog-info {
       display: flex;
       text-align: center;
-      margin-top: 4vh;
+      margin-top: 1.5vh;
 
       p {
         margin-left: 2vw;
       }
 
       #author {
+        margin-top: 2vh;
         margin-left: 6.5vw;
       }
     }
 
-    &:hover {
-      box-shadow: 0 0 10px 5px gray;
+
+    .like {
+      font-size: 2.5rem;
+      cursor: pointer;
+      margin-left: 2vw;
+      i {
+        color: #ff4b69;
+      }
     }
   }
 }
